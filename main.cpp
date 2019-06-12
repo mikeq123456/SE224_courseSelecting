@@ -10,14 +10,14 @@ char g_ID[10], g_passWd[10];
 
 struct Course
 {
-	char number[6];		// ¿Î³Ì±àºÅ
-	char name[11];	// ¿Î³ÌÃû³Æ
-	char tpye[6];	// ¿Î³ÌĞÔÖÊ
-	int period;		// Ñ§Ê±
-	int clas;		// ÊÚ¿ÎÑ§Ê±
-	int test;		// ÊµÑéÑ§Ê±
-	int score;		// Ñ§·Ö
-	int term;		// Ñ§ÆÚ
+	char number[6];		// è¯¾ç¨‹ç¼–å·
+	char name[11];	// è¯¾ç¨‹åç§°
+	//char tpye[6];	// è¯¾ç¨‹æ€§è´¨
+	int period;		// å­¦æ—¶
+	int clas;		// æˆè¯¾å­¦æ—¶
+	int test;		// å®éªŒå­¦æ—¶
+	int score;		// å­¦åˆ†
+	int term;		// å­¦æœŸ
 public:
 	void add();
 	void select();
@@ -28,9 +28,9 @@ public:
 
 struct Stu
 {
-	char ID[10];		// Ñ§ºÅ
-	char number[6];	// ¿Î³ÌĞÅÏ¢
-	char grade[4];	// ³É¼¨
+	char ID[10];		// å­¦å·
+	char number[6];	// è¯¾ç¨‹ä¿¡æ¯
+	char grade[4];	// æˆç»©
 
 public:
 	void choose();
@@ -50,24 +50,24 @@ public:
 
 void Course::add()
 {
-	printf("ÇëÊäÈë¿Î³Ì±àºÅ£º");
+	printf("è¯·è¾“å…¥è¯¾ç¨‹ç¼–å·ï¼š");
 	scanf("%s", number);
-	printf("ÇëÊäÈë¿Î³ÌÃû³Æ£º");
+	printf("è¯·è¾“å…¥è¯¾ç¨‹åç§°ï¼š");
 	scanf("%s", name);
-	printf("ÇëÊäÈë¿Î³ÌĞÔÖÊ£º");
+	printf("è¯·è¾“å…¥è¯¾ç¨‹æ€§è´¨ï¼š");
 	scanf("%s", tpye);
-	printf("ÇëÊäÈëÑ§Ê±£º");
+	printf("è¯·è¾“å…¥å­¦æ—¶ï¼š");
 	scanf("%d", &period);
-	printf("ÇëÊäÈëÊÚ¿ÎÑ§Ê±£º");
+	printf("è¯·è¾“å…¥æˆè¯¾å­¦æ—¶ï¼š");
 	scanf("%d", &clas);
-	printf("ÇëÊäÈëÊµÑéÑ§Ê±£º");
+	printf("è¯·è¾“å…¥å®éªŒå­¦æ—¶ï¼š");
 	scanf("%d", &test);
-	printf("ÇëÊäÈëÑ§·Ö£º");
+	printf("è¯·è¾“å…¥å­¦åˆ†ï¼š");
 	scanf("%d", &score);
-	printf("ÇëÊäÈëÑ§ÆÚ£º");
+	printf("è¯·è¾“å…¥å­¦æœŸï¼š");
 	scanf("%d", &term);
 
-	// ÒÔ¸½¼ÓµÄÄ£Ê½´ò¿ªÎÄ¼ş£¬Ìí¼ÓÌí¼Ó¿Î³ÌĞÅÏ¢
+	// ä»¥é™„åŠ çš„æ¨¡å¼æ‰“å¼€æ–‡ä»¶ï¼Œæ·»åŠ æ·»åŠ è¯¾ç¨‹ä¿¡æ¯
 	FILE *fp = fopen("test.txt", "a+");
 	fprintf(fp, "\n%s\t%s\t\t%s\t%d\t%d\t%d\t%d\t%d", number, name, tpye, period, clas, test, score, term);
 	fclose(fp);
@@ -77,7 +77,7 @@ void Course::select()
 	Course cou;
 	FILE *fp = fopen("test.txt", "r");
 
-	// ¶ÁÈ¡ÎÄ¼şĞÅÏ¢²¢Êä³öµ½ÆÁÄ»
+	// è¯»å–æ–‡ä»¶ä¿¡æ¯å¹¶è¾“å‡ºåˆ°å±å¹•
 	while (!feof(fp))
 	{
 		fscanf(fp, "%s %s %s %d %d %d %d %d", cou.number, cou.name);
@@ -88,11 +88,11 @@ void Course::select()
 void Course::grade()
 {
 	char num[10], num_read[10], kc[10], kc_read[10], gr[4];
-	printf("ÇëÊäÈëÒªÂ¼Èë³É¼¨µÄÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥è¦å½•å…¥æˆç»©çš„å­¦å·ï¼š");
 	scanf("%s", num);
-	printf("ÇëÊäÈëÒªÂ¼Èë³É¼¨µÄ¿Î³Ì£º");
+	printf("è¯·è¾“å…¥è¦å½•å…¥æˆç»©çš„è¯¾ç¨‹ï¼š");
 	scanf("%s", kc);
-	printf("ÇëÂ¼Èë³É¼¨£º");
+	printf("è¯·å½•å…¥æˆç»©ï¼š");
 	scanf("%s", gr);
 	FILE *fp = fopen("choose.txt", "r+");
 	rewind(fp);
@@ -114,7 +114,7 @@ void Course::grade()
 void Course::query()
 {
 	char str[10];
-	printf("ÇëÊäÈëÒª²éÑ¯µÄÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥è¦æŸ¥è¯¢çš„å­¦å·ï¼š");
 	scanf("%s", str);
 	char t[10], a[10], b[10];
 	FILE *fp = fopen("choose.txt", "r");
@@ -132,7 +132,7 @@ void Course::query()
 void Course::query1()
 {
 	char str[10];
-	printf("ÇëÊäÈëÒª²éÑ¯µÄ¿Î³Ì£º");
+	printf("è¯·è¾“å…¥è¦æŸ¥è¯¢çš„è¯¾ç¨‹ï¼š");
 	scanf("%s", str);
 	char old[10], t[10], b[10];
 	FILE *fp = fopen("choose.txt", "r");
@@ -148,21 +148,21 @@ void Course::query1()
 	}
 	fclose(fp);
 }
-void Man::sort(Man* man)	// ÅÅĞò
+void Man::sort(Man* man)	// æ’åº
 {
 	FILE *fp = fopen("choose.txt", "r");
 	int i = 0;
 
 	while (!feof(fp))
 	{
-		man->stu[i] = (Stu*)malloc(sizeof(Stu));		// ÎªÖ¸Õë·ÖÅä¿Õ¼ä
+		man->stu[i] = (Stu*)malloc(sizeof(Stu));		// ä¸ºæŒ‡é’ˆåˆ†é…ç©ºé—´
 		fscanf(fp, "%s %s %s", man->stu[i]->ID, man->stu[i]->number, man->stu[i]->grade);
 		i++;
 		//printf("%s\t%s\t%s\n", g_ID, a, b);
 	}
 	fclose(fp);
 	i--;
-	for (int j = 0; j < i; j++)		// ±éÀúÅÅĞò
+	for (int j = 0; j < i; j++)		// éå†æ’åº
 	{
 		for (int k = 1; k < i; k++)
 		{
@@ -174,7 +174,7 @@ void Man::sort(Man* man)	// ÅÅĞò
 			}
 		}
 	}
-	for (int a = 0; a < i; a++)		// Êä³öµ½ÆÁÄ»
+	for (int a = 0; a < i; a++)		// è¾“å‡ºåˆ°å±å¹•
 	{
 		printf("%s\t%s\t%s\n", man->stu[a]->ID, man->stu[a]->number, man->stu[a]->grade);
 	}
@@ -254,11 +254,11 @@ void a(Man* man, int i)
 		strcpy(l, man->stu[k - 1]->grade);
 		if (strcmp(man->stu[k - 1]->grade, man->stu[k]->grade) > 0)
 		{
-			strcpy(l, man->stu[k]->grade);		// È¡³É¼¨×î¸ß
+			strcpy(l, man->stu[k]->grade);		// å–æˆç»©æœ€é«˜
 		}
 		if (strcmp(man->stu[k - 1]->grade, man->stu[k]->grade) < 0)
 		{
-			strcpy(h, man->stu[k]->grade);		// È¥³É¼¨×îµÍ
+			strcpy(h, man->stu[k]->grade);		// å»æˆç»©æœ€ä½
 		}
 
 	}
@@ -281,9 +281,9 @@ void a(Man* man, int i)
 	}
 	sum /= i;
 
-	printf("¿Î³Ì%s\t", man->stu[0]->number);
-	printf("×î¸ß³É¼¨%s\t×îµÍ³É¼¨%s\tÆ½¾ù³É¼¨%f\n", h, l, sum);
-	printf("ÓÅĞã%d\tÁ¼ºÃ%d\tÆ½¾ù³É¼¨²»¼°¸ñ%d\n", good, well, fail);
+	printf("è¯¾ç¨‹%s\t", man->stu[0]->number);
+	printf("æœ€é«˜æˆç»©%s\tæœ€ä½æˆç»©%s\tå¹³å‡æˆç»©%f\n", h, l, sum);
+	printf("ä¼˜ç§€%d\tè‰¯å¥½%d\tå¹³å‡æˆç»©ä¸åŠæ ¼%d\n", good, well, fail);
 }
 void Man::all(Man* man)
 {
@@ -293,8 +293,8 @@ void Man::all(Man* man)
 
 	while (!feof(fp))
 	{
-		man->stu[i] = (Stu*)malloc(sizeof(Stu));	// ÎªÃ¿¸öÖ¸ÏòStuµÄÖ¸Õë·ÖÅäÄÚ´æ
-		fscanf(fp, "%s %s %s", man->stu[i]->ID, man->stu[i]->number, man->stu[i]->grade);	// ¶ÁÈ¡ÎÄ¼şÖĞµÄĞÅÏ¢
+		man->stu[i] = (Stu*)malloc(sizeof(Stu));	// ä¸ºæ¯ä¸ªæŒ‡å‘Stuçš„æŒ‡é’ˆåˆ†é…å†…å­˜
+		fscanf(fp, "%s %s %s", man->stu[i]->ID, man->stu[i]->number, man->stu[i]->grade);	// è¯»å–æ–‡ä»¶ä¸­çš„ä¿¡æ¯
 		i++;
 		//printf("%s\t%s\t%s\n", g_ID, a, b);
 	}
@@ -354,7 +354,7 @@ void Man::all(Man* man)
 void Stu::choose()
 {
 	strcpy(ID, g_ID);
-	printf("ÇëÊäÈë¿Î³Ì±àºÅ");
+	printf("è¯·è¾“å…¥è¯¾ç¨‹ç¼–å·");
 	scanf("%s", number);
 	strcpy(grade, "00  ");
 
@@ -391,7 +391,7 @@ bool manLogin()
 
 		if (strcmp(g_ID, a) == 0) {
 			if (strcmp(g_passWd, b) == 0) {
-				printf("µÇÂ¼³É¹¦\n");
+				printf("ç™»å½•æˆåŠŸ\n");
 				return true;
 			}
 		}
@@ -412,7 +412,7 @@ bool stuLogin()
 
 		if (strcmp(g_ID, a) == 0) {
 			if (strcmp(g_passWd, b) == 0) {
-				printf("µÇÂ¼³É¹¦\n");
+				printf("ç™»å½•æˆåŠŸ\n");
 				return true;
 			}
 		}
@@ -427,91 +427,91 @@ int main()
 	Man *man = (Man*)malloc(sizeof(Man));
 	Course C;
 	Stu S;
-	printf("ÇëÊäÈëÕËºÅ£º");
+	printf("è¯·è¾“å…¥è´¦å·ï¼š");
 	scanf("%s", g_ID);
-	printf("ÇëÊäÈëÃÜÂë£º");
+	printf("è¯·è¾“å…¥å¯†ç ï¼š");
 	scanf("%s", g_passWd);
 	if (manLogin() == true)
 	{
-		printf("¹ÜÀíÔ±µÇÂ¼\n");
+		printf("ç®¡ç†å‘˜ç™»å½•\n");
 		g_type = 1;
 		int m;
 		//Course S;
 		while (1)
 		{
-			printf("\n\n¿Î³ÌÂ¼Èë\t1");		   //Êä³ö²Ù×÷ÌáÊ¾
-			printf("\n\nä¯ÀÀ¿Î³Ì\t2");
-			printf("\n\n³É¼¨Â¼Èë\t3");
-			printf("\n\n°´Ñ§ºÅ²éÑ¯\t4");
-			printf("\n\n°´¿Î³Ì²éÑ¯\t5");
-			printf("\n\n¿Î³ÌºÅÅÅĞò\t6");
-			printf("\n\nÑ§ºÅÅÅĞò\t7");
-			printf("\n\n³É¼¨ÅÅĞò\t8");
-			printf("\n\n³É¼¨»ã×Ü\t9\n");
-			printf("\n\nÍË³ö\t0\n");
+			printf("\n\nè¯¾ç¨‹å½•å…¥\t1");		   //è¾“å‡ºæ“ä½œæç¤º
+			printf("\n\næµè§ˆè¯¾ç¨‹\t2");
+			printf("\n\næˆç»©å½•å…¥\t3");
+			printf("\n\næŒ‰å­¦å·æŸ¥è¯¢\t4");
+			printf("\n\næŒ‰è¯¾ç¨‹æŸ¥è¯¢\t5");
+			printf("\n\nè¯¾ç¨‹å·æ’åº\t6");
+			printf("\n\nå­¦å·æ’åº\t7");
+			printf("\n\næˆç»©æ’åº\t8");
+			printf("\n\næˆç»©æ±‡æ€»\t9\n");
+			printf("\n\né€€å‡º\t0\n");
 
-			scanf("%d", &m);                         //½ÓÊÜÒª²Ù×÷µÄ²½Öè    if(m>='0'&&m<='5')
+			scanf("%d", &m);                         //æ¥å—è¦æ“ä½œçš„æ­¥éª¤    if(m>='0'&&m<='5')
 			if (m < 10 && m >= 0)
 			{
 				switch (m)
 				{
 				case 1: C.add();
-					break;				//Ñ¡1 ¿Î³ÌÂ¼Èë
+					break;				//é€‰1 è¯¾ç¨‹å½•å…¥
 				case 2: C.select();
-					break;				//Ñ¡2 ä¯ÀÀ
+					break;				//é€‰2 æµè§ˆ
 				case 3: C.grade();
-					break;				//Ñ¡3 ³É¼¨Â¼Èë
+					break;				//é€‰3 æˆç»©å½•å…¥
 				case 4: C.query();
-					break;				//Ñ¡4 Ñ§ºÅ²éÑ¯
+					break;				//é€‰4 å­¦å·æŸ¥è¯¢
 				case 5: C.query1();
-					break;				//Ñ¡5 ¿Î³Ì²éÑ¯
+					break;				//é€‰5 è¯¾ç¨‹æŸ¥è¯¢
 				case 6: man->sort(man);
-					break;				//Ñ¡6 ¿Î³ÌºÅÅÅĞò
+					break;				//é€‰6 è¯¾ç¨‹å·æ’åº
 				case 7: man->sort1(man);
-					break;				//Ñ¡7 Ñ§ºÅÅÅĞò
+					break;				//é€‰7 å­¦å·æ’åº
 				case 8: man->sort2(man);
-					break;				//Ñ¡6 ³É¼¨ÅÅĞò
+					break;				//é€‰6 æˆç»©æ’åº
 				case 9: man->all(man);
-					break;				//Ñ¡7 ³É¼¨»ã×Ü
-				case 0: exit(0);	    //Ñ¡0½áÊø
+					break;				//é€‰7 æˆç»©æ±‡æ€»
+				case 0: exit(0);	    //é€‰0ç»“æŸ
 				}
-				printf("\n\n²Ù×÷Íê±Ï£¬ÇëÔÙ´ÎÑ¡Ôñ£¡");
+				printf("\n\næ“ä½œå®Œæ¯•ï¼Œè¯·å†æ¬¡é€‰æ‹©ï¼");
 			}
-			else printf("\n\nÑ¡Ôñ´íÎó£¬ÇëÔÙ´ÎÑ¡Ôñ£¡");
+			else printf("\n\né€‰æ‹©é”™è¯¯ï¼Œè¯·å†æ¬¡é€‰æ‹©ï¼");
 		}
 	}
 	else if (stuLogin() == true)
 	{
-		printf("Ñ§ÉúµÇÂ¼\n");
+		printf("å­¦ç”Ÿç™»å½•\n");
 		g_type = 2;
 		int m;
 		while (1)
 		{
-			printf("\n\nä¯ÀÀ¿Î³ÌĞÅÏ¢\t1");
-			printf("\n\nÑ§ÉúÑ¡¿Î\t2");
-			printf("\n\n²é¿´Ñ¡¿Î\t3");
+			printf("\n\næµè§ˆè¯¾ç¨‹ä¿¡æ¯\t1");
+			printf("\n\nå­¦ç”Ÿé€‰è¯¾\t2");
+			printf("\n\næŸ¥çœ‹é€‰è¯¾\t3");
 
-			scanf("%d", &m);                         //½ÓÊÜÒª²Ù×÷µÄ²½Öè    if(m>='0'&&m<='5')
+			scanf("%d", &m);                         //æ¥å—è¦æ“ä½œçš„æ­¥éª¤    if(m>='0'&&m<='5')
 			if (m < 4 && m >= 0)
 			{
 				switch (m)
 				{
 				case 1: C.select();
-					break;				//Ñ¡1 ä¯ÀÀ
+					break;				//é€‰1 æµè§ˆ
 				case 2: S.choose();
-					break;				//Ñ¡1 ä¯ÀÀ
+					break;				//é€‰1 æµè§ˆ
 				case 3: S.look();
-					break;				//Ñ¡1 ä¯ÀÀ
-				case 0: exit(0);	    //Ñ¡0½áÊø
+					break;				//é€‰1 æµè§ˆ
+				case 0: exit(0);	    //é€‰0ç»“æŸ
 				}
-				printf("\n\n²Ù×÷Íê±Ï£¬ÇëÔÙ´ÎÑ¡Ôñ£¡");
+				printf("\n\næ“ä½œå®Œæ¯•ï¼Œè¯·å†æ¬¡é€‰æ‹©ï¼");
 			}
-			else printf("\n\nÑ¡Ôñ´íÎó£¬ÇëÔÙ´ÎÑ¡Ôñ£¡");
+			else printf("\n\né€‰æ‹©é”™è¯¯ï¼Œè¯·å†æ¬¡é€‰æ‹©ï¼");
 		}
 	}
 	else
 	{
-		printf("ÕËºÅ»òÃÜÂë´íÎó£¡");
+		printf("è´¦å·æˆ–å¯†ç é”™è¯¯ï¼");
 	}
 
 	return 0;
