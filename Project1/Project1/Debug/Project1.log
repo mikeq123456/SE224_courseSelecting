@@ -1,0 +1,8 @@
+﻿  main.cpp
+c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(82): warning C4473: “fscanf”: 没有为格式字符串传递足够的参数
+  c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(82): note: 占位符和其参数预计 8 可变参数，但提供的却是 2 参数
+  c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(82): note: 缺失的可变参数 3 为格式字符串“%s”所需
+c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(83): warning C4473: “printf”: 没有为格式字符串传递足够的参数
+  c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(83): note: 占位符和其参数预计 8 可变参数，但提供的却是 2 参数
+  c:\users\xuyan wang\desktop\coursesystem2 2\coursesystem2\main.cpp(83): note: 缺失的可变参数 3 为格式字符串“%s”所需
+  Project1.vcxproj -> C:\Users\Xuyan Wang\source\repos\Project1\Debug\Project1.exe
