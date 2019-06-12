@@ -14,8 +14,8 @@ struct Course
 	char name[11];	// 课程名称
 	//char tpye[6];	// 课程性质
 	int period;		// 学时
-	int clas;		// 授课学时
-	int test;		// 实验学时
+	//int clas;		// 授课学时
+	//int test;		// 实验学时
 	int score;		// 学分
 	int term;		// 学期
 public:
@@ -36,6 +36,7 @@ public:
 	void choose();
 	void look();
 };
+
 struct Man
 {
 public:
@@ -54,14 +55,14 @@ void Course::add()
 	scanf("%s", number);
 	printf("请输入课程名称：");
 	scanf("%s", name);
-	printf("请输入课程性质：");
-	scanf("%s", tpye);
+	/*printf("请输入课程性质：");
+	scanf("%s", tpye);*/
 	printf("请输入学时：");
-	scanf("%d", &period);
+	/*scanf("%d", &period);
 	printf("请输入授课学时：");
 	scanf("%d", &clas);
 	printf("请输入实验学时：");
-	scanf("%d", &test);
+	scanf("%d", &test);*/
 	printf("请输入学分：");
 	scanf("%d", &score);
 	printf("请输入学期：");
@@ -69,7 +70,7 @@ void Course::add()
 
 	// 以附加的模式打开文件，添加添加课程信息
 	FILE *fp = fopen("test.txt", "a+");
-	fprintf(fp, "\n%s\t%s\t\t%s\t%d\t%d\t%d\t%d\t%d", number, name, tpye, period, clas, test, score, term);
+	fprintf(fp, "\n%s\t%s\t\t%d\t%d\t%d", number, name, period, score, term);
 	fclose(fp);
 }
 void Course::select()
